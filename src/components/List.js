@@ -23,27 +23,10 @@ let List = (props) => {
         let id = event.target.id;
         props.deleteTodo(id)
     }
-
-    const { todos, status } = props;
-    let newTodo = []
-    if (status === 'isCompleted') {
-        for (let i = 0; i < todos.length; i++) {
-            if (todos[i].isCompleted === true) {
-                newTodo.push(todos[i])
-            }
-        }
-    } else if (status === 'active') {
-        for (let i = 0; i < todos.length; i++) {
-            if (todos[i].isCompleted === false) {
-                newTodo.push(todos[i])
-            }
-        }
-    } else {
-        newTodo = todos
-    }
+    const { todos } = props;
     return (
         <div>
-            {newTodo.map(newTodo => (
+            {todos.map(newTodo => (
                 <Label key={newTodo.id}>
                     <input
                         type="checkbox"
